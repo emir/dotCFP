@@ -9,8 +9,10 @@
 
                 <div class="panel">
                     <div class="panel-body">
-                        <div id="flickrembed"></div>
-                        <script src='https://flickrembed.com/embed_v2.js.php?source=flickr&layout=responsive&input=72157681171150484&sort=3&by=album&theme=default_notextpanel&scale=fill&limit=100&skin=default-light&autoplay=true'></script>
+                        <a data-flickr-embed="true" href="https://www.flickr.com/photos/150061759@N02/sets/72157681171150484" title="PHPKonf 2017 by istanbulphp, on Flickr">
+                            <img src="https://farm5.staticflickr.com/4223/34854527896_8c55faf881_b.jpg" width="100%" alt="_DSC1938">
+                        </a>
+                        <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
                         <hr>
 
