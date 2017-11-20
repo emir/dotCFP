@@ -9,12 +9,7 @@
 
                 <div class="panel">
                     <div class="panel-body">
-                        <a data-flickr-embed="true" href="https://www.flickr.com/photos/150061759@N02/sets/72157681171150484" title="PHPKonf 2017 by istanbulphp, on Flickr">
-                            <img src="https://farm5.staticflickr.com/4223/34854527896_8c55faf881_b.jpg" width="100%" alt="_DSC1938">
-                        </a>
-                        <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-
-                        <hr>
+                        <a data-flickr-embed="true" data-context="true"  href="https://www.flickr.com/photos/150061759@N02/34507849500/in/album-72157681171150484/" title="_DSC1994"><img src="https://farm5.staticflickr.com/4197/34507849500_06ef34a5a3_z.jpg" width="717" alt="_DSC1994"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
                         <p>
                             We’re pleased to announce our conference, {{ config('opencfp.event_name', 'OpenCFP') }}
@@ -25,13 +20,13 @@
                         </p>
 
                         @if(count(config('opencfp.previous_years')) > 0)
-                        <h3>Previously on {{ config('opencfp.event_name') }}</h3>
+                            <h3>Previously on {{ config('opencfp.event_name') }}</h3>
 
-                        <ul class="list-unstyled">
-                            @foreach(config('opencfp.previous_years') as $last_year)
-                                <li><a target="_blank" href="{{ $last_year }}">{{ $last_year }}</a></li>
-                            @endforeach
-                        </ul>
+                            <ul class="list-unstyled">
+                                @foreach(config('opencfp.previous_years') as $last_year)
+                                    <li><a target="_blank" href="{{ $last_year }}">{{ $last_year }}</a></li>
+                                @endforeach
+                            </ul>
                         @endif
                     </div>
                 </div>
@@ -39,7 +34,19 @@
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        Event Location
+                        <i class="fa fa-calendar"></i> Date
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-unstyled">
+                            <li>Submissions were accepted until <strong>{{ (new DateTime(config('opencfp.cfp_end_date')))->format('M d, Y') }}</strong></li>
+                            <li>Event is <strong>{{ (new DateTime(config('opencfp.start_date')))->format('M d, Y') }}</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-map-marker"></i> Event Location
                     </div>
                     <div class="panel-body">
                         {!! config('opencfp.maps') !!}
@@ -48,7 +55,7 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        Speaker Package
+                        <i class="fa fa-gift"></i> Speaker Package
                     </div>
                     <div class="panel-body">
                         <p>
@@ -67,7 +74,7 @@
 
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        Diversity Matters
+                        <i class="fa fa-legal"></i> Diversity Matters
                     </div>
                     <div class="panel-body">
                         <p>

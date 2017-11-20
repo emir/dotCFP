@@ -10,10 +10,10 @@ return [
     'event_email' => 'mail@istanbulphp.org',
 
     //Event start date (Y-m-d)
-    'start_date' => '2017-05-20',
+    'start_date' => '2018-05-20',
 
     //Event end date (Y-m-d)
-    'end_date' => '2017-05-20',
+    'end_date' => '2018-05-20',
 
     //Submit talk feature opened after the date below (Y-m-d)
     'cfp_start_date' => '2017-11-20',
