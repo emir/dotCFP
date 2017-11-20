@@ -5,6 +5,12 @@
         <div class="row">
 
             <div class="col-md-8 col-md-offset-2">
+                @if(empty(auth()->user()->bio))
+                <div class="alert alert-danger">
+                    <i class="fa fa-user"></i> Please don't forget to update your speaker profile, too!
+                </div>
+                @endif
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-list"></i> Submit your Talk</h4>
