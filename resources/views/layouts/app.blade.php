@@ -11,7 +11,7 @@
     <title>{{ config('opencfp.event_name', 'dotCFP') }}: Call for Papers</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -137,8 +137,8 @@
 </footer>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/bootbox.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('js/bootbox.js') }}"></script>
 
 </body>
 </html>
