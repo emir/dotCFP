@@ -6,6 +6,9 @@ return [
     //Promo site URL (Not dotCFP!)
     'event_site' => 'http://phpkonf.org/',
 
+    //Event Contact email
+    'event_email' => 'mail@istanbulphp.org',
+
     //Event start date (Y-m-d)
     'start_date' => '2017-05-20',
 
