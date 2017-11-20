@@ -84,6 +84,15 @@ class User extends Authenticatable
     }
 
     /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeCommittee($query)
+    {
+        return $query->whereIn('role', ['admin', 'reviewer'])->orderBy('name', 'ASC');
+    }
+
+    /**
      * @return bool
      */
     public function inCommittee(): bool

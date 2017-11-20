@@ -19,6 +19,8 @@ Route::get('/login/github', 'LoginController@redirectToProvider')->name('login')
 
 Route::get('/login/github/callback', 'LoginController@handleProviderCallback');
 
+Route::get('/committee', 'CommitteeController@index')->name('committee.index');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
 
