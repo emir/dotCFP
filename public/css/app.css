@@ -53,6 +53,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     padding-bottom: 60px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .footer {
@@ -80,8 +81,9 @@ body {
 }
 
 .social > li {
-    padding-left: 0!important;
-}@charset "UTF-8";
+    padding-left: 0 !important;
+}
+@charset "UTF-8";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
