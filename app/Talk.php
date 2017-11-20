@@ -65,6 +65,14 @@ class Talk extends Model
     }
 
     /**
+     * @return HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
      * @param $query
      * @return mixed
      */

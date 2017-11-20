@@ -42,12 +42,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/talks', 'TalksController@index')->name('talks.index');
     Route::get('/talks/create', 'TalksController@create')->name('talks.create');
     Route::get('/talks/{talk}', 'TalksController@show')->name('talks.show')->middleware(['role:admin|reviewer']);
+
     Route::get('/talks/{talk}/edit', 'TalksController@edit')->name('talks.edit')->middleware(['can:edit,talk']);
     Route::get('/talks/{talk}/delete', 'TalksController@destroy')->name('talks.destroy')->middleware(['can:delete,talk']);
 
     Route::post('/talks', 'TalksController@store')->name('talks.store');
+    Route::post('/talks/{talk}/comments', 'CommentsController@store')->name('talks.comments')->middleware(['role:admin|reviewer']);
     Route::post('/talks/{talk}/vote', 'TalksController@voteAction')->name('talks.vote')->middleware(['role:admin|reviewer']);
     Route::post('/talks/{talk}/approve', 'TalksController@approveAction')->name('talks.approve')->middleware(['role:admin']);
 
     Route::put('/talks/{talk}/update', 'TalksController@update')->name('talks.update')->middleware(['can:update,talk']);
+
+    /**
+     * Comments
+     */
+    Route::get('/comments/{comment}/delete', 'CommentsController@destroy')->name('comments.destroy')->middleware(['role:admin|reviewer', 'can:delete,comment']);
 });

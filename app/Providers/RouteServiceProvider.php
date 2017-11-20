@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Speaker;
+use App\Comment;
 use App\Talk;
 use App\User;
 use Illuminate\Routing\Router;
@@ -44,8 +44,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $router->model('user', User::class);
-        $router->model('speaker', Speaker::class);
         $router->model('talk', Talk::class);
+        $router->model('comment', Comment::class);
     }
 
     /**

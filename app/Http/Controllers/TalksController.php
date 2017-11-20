@@ -46,7 +46,7 @@ class TalksController extends Controller
      */
     public function show(Talk $talk): Response
     {
-        $talk->loadMissing('user');
+        $talk->loadMissing(['user', 'comments']);
 
         return response()->view('talks.show', compact('talk'));
     }

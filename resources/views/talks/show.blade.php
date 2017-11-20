@@ -69,8 +69,10 @@
                             </div>
                         </div>
                     @endif
-
                 </div>
+
+                @include('talks.comments')
+
             </div>
         </div>
     </div>
