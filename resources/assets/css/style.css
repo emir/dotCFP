@@ -37,14 +37,3 @@ body {
 .social > li {
     padding-left: 0 !important;
 }
-
-.carousel .item {
-    height: 250px;
-}
-
-.item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 250px;
-}
