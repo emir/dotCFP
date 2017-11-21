@@ -64,8 +64,8 @@
                                             <a href="{{ route('users.edit', $talk->user_id) }}">{{ $talk->user->name }}</a>
                                         @endif
                                     </td>
-                                    <td>{{ mb_substr($talk->description, 0, 140) }}</td>
-                                    <td>{{ mb_substr($talk->additional_information, 0, 140) }}</td>
+                                    <td>{{ str_limit($talk->description, 140) }}</td>
+                                    <td>{{ str_limit($talk->additional_information, 140) }}</td>
                                     <td>{{ $talk->duration }} min.</td>
                                     <td>{{ $talk->created_at->format('d-m-Y H:i') }}</td>
                                     @if(auth()->user()->role == 'admin')
