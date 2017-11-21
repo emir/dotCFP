@@ -42,9 +42,12 @@
 
                     <li><a target="_blank" href="{{ config('opencfp.event_site') }}"><i
                                     class="fa fa-ticket"></i> Event Website</a></li>
+
+                    @if(auth()->check())
                     <li class="{{ Request::is('users/' . auth()->id() . '/edit') ? 'active' : '' }}"><a
                                 href="{{ route('users.edit', auth()->id()) }}"><i
                                     class="fa fa-pencil"></i> Edit Profile</a></li>
+                    @endif
 
                     @if(auth()->check() && auth()->user()->inCommittee())
                         <li class="{{ Request::is('users') ? 'active' : '' }}"><a href="{{ route('users.index') }}"><i
