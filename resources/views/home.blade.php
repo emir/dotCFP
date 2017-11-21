@@ -9,8 +9,37 @@
 
                 <div class="panel">
                     <div class="panel-body">
-                        <div id="flickrembed"></div>
-                        <script src='https://flickrembed.com/embed_v2.js.php?source=flickr&layout=responsive&input=72157681171150484&sort=3&by=album&theme=default_notextpanel&scale=fill&limit=100&skin=default-light&autoplay=true'></script>
+                        <div id="slider" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                @for($i = 0; $i < 5; $i++)
+                                    <li data-target="#slider" data-slide-to="{{ $i }}" @if($i == 0)class="active" @endif></li>
+                                @endfor
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+
+                                @for($i = 0; $i < 5; $i++)
+                                <div class="item @if($i == 0)active @endif">
+                                    <img src="{{ url("/images/$i.jpg") }}" alt="PHPKonf 2017" style="width:100%;">
+                                </div>
+                                @endfor
+
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#slider" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#slider" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <hr>
 
                         <p>
                             We’re pleased to announce our conference, {{ config('opencfp.event_name', 'OpenCFP') }}
