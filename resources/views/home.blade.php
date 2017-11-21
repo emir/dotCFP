@@ -9,7 +9,8 @@
 
                 <div class="panel">
                     <div class="panel-body">
-                        <a data-flickr-embed="true" data-context="true"  href="https://www.flickr.com/photos/150061759@N02/34507849500/in/album-72157681171150484/" title="_DSC1994"><img src="https://farm5.staticflickr.com/4197/34507849500_06ef34a5a3_z.jpg" width="717" alt="_DSC1994"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                        <div id="flickrembed"></div>
+                        <script src='https://flickrembed.com/embed_v2.js.php?source=flickr&layout=responsive&input=72157681171150484&sort=3&by=album&theme=default_notextpanel&scale=fill&limit=100&skin=default-light&autoplay=true'></script>
 
                         <p>
                             We’re pleased to announce our conference, {{ config('opencfp.event_name', 'OpenCFP') }}
