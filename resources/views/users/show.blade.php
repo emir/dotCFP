@@ -38,7 +38,7 @@
             <tr>
                 <td class="col-md-5"><strong>Airport Code</strong></td>
                 <td class="col-md-7"><a target="_blank"
-                                        href="https://www.google.com/flights/#search;f={{ config('opencfp.airport_code') }};t={{ $user->airport_code }};d={{ config('opencfp.start_date') }};r={{ config('opencfp.end_date') }}">{{ $user->airport_code }}</a>
+                                        href="https://www.google.com/flights/#search;f={{ config('dotcfp.airport_code') }};t={{ $user->airport_code }};d={{ config('dotcfp.start_date') }};r={{ config('dotcfp.end_date') }}">{{ $user->airport_code }}</a>
                 </td>
             </tr>
             <tr>

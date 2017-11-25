@@ -13,7 +13,7 @@
                 <div class="panel-body">
 
                     <div class="alert alert-info">
-                        <strong>Would like to be part of committee?</strong> Shoot us an <a href="mailto:{{ config('opencfp.event_email') }}">email</a>!
+                        <strong>Would like to be part of committee?</strong> Shoot us an <a href="mailto:{{ config('dotcfp.event_email') }}">email</a>!
                     </div>
 
                     <div class="table-responsive">

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('opencfp.event_name', 'dotCFP') }}: Call for Papers</title>
+    <title>{{ config('dotcfp.event_name', 'dotCFP') }}: Call for Papers</title>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fa fa-bullhorn"></i> {{ config('opencfp.event_name', 'dotCFP') }}
+                    <i class="fa fa-bullhorn"></i> {{ config('dotcfp.event_name', 'dotCFP') }}
                 </a>
             </div>
 
@@ -40,7 +40,7 @@
                     <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}"><i
                                     class="fa fa-home"></i> Home</a></li>
 
-                    <li><a target="_blank" href="{{ config('opencfp.event_site') }}"><i
+                    <li><a target="_blank" href="{{ config('dotcfp.event_site') }}"><i
                                     class="fa fa-ticket"></i> Event Website</a></li>
 
                     @if(auth()->check())
@@ -73,16 +73,16 @@
                                         class="fa fa-list"></i> My Talks</a></li>
                     @endif
 
-                    @if(config('opencfp.cfp_start_date') > date('Y-m-d'))
+                    @if(config('dotcfp.cfp_start_date') > date('Y-m-d'))
                     <li style="margin-left: 10px;">
                         <p class="navbar-btn">
-                            <a target="_blank" href="{{ config('opencfp.event_site') }}" class="btn btn-info">Opened from {{ config('opencfp.cfp_start_date') }} to {{ config('opencfp.cfp_end_date') }}</a>
+                            <a target="_blank" href="{{ config('dotcfp.event_site') }}" class="btn btn-info">Opened from {{ config('dotcfp.cfp_start_date') }} to {{ config('dotcfp.cfp_end_date') }}</a>
                         </p>
                     </li>
-                    @elseif(config('opencfp.cfp_end_date') < date('Y-m-d'))
+                    @elseif(config('dotcfp.cfp_end_date') < date('Y-m-d'))
                         <li style="margin-left: 10px;">
                             <p class="navbar-btn">
-                                <a target="_blank" href="{{ config('opencfp.event_site') }}" class="btn btn-danger">CFP is closed—now what?</a>
+                                <a target="_blank" href="{{ config('dotcfp.event_site') }}" class="btn btn-danger">CFP is closed—now what?</a>
                             </p>
                         </li>
                     @else

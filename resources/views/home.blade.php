@@ -42,18 +42,18 @@
                         <hr>
 
                         <p>
-                            We’re pleased to announce our conference, {{ config('opencfp.event_name', 'OpenCFP') }}
+                            We’re pleased to announce our conference, {{ config('dotcfp.event_name', 'dotCFP') }}
                             should be
                             one of the best PHP conferences where community members from around
                             the world come together to learn and share information about the latest
                             trends and technologies in professional PHP development.
                         </p>
 
-                        @if(count(config('opencfp.previous_years')) > 0)
-                            <h3>Previously on {{ config('opencfp.event_name') }}</h3>
+                        @if(count(config('dotcfp.previous_years')) > 0)
+                            <h3>Previously on {{ config('dotcfp.event_name') }}</h3>
 
                             <ul class="list-unstyled">
-                                @foreach(config('opencfp.previous_years') as $last_year)
+                                @foreach(config('dotcfp.previous_years') as $last_year)
                                     <li><a target="_blank" href="{{ $last_year }}">{{ $last_year }}</a></li>
                                 @endforeach
                             </ul>
@@ -68,8 +68,8 @@
                     </div>
                     <div class="panel-body">
                         <ul class="list-unstyled">
-                            <li>Submissions were accepted until <strong>{{ (new DateTime(config('opencfp.cfp_end_date')))->format('M d, Y') }}</strong></li>
-                            <li>Event is <strong>{{ (new DateTime(config('opencfp.start_date')))->format('M d, Y') }}</strong></li>
+                            <li>Submissions were accepted until <strong>{{ (new DateTime(config('dotcfp.cfp_end_date')))->format('M d, Y') }}</strong></li>
+                            <li>Event is <strong>{{ (new DateTime(config('dotcfp.start_date')))->format('M d, Y') }}</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         <i class="fa fa-map-marker"></i> Event Location
                     </div>
                     <div class="panel-body">
-                        {!! config('opencfp.maps') !!}
+                        {!! config('dotcfp.maps') !!}
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                         </p>
 
                         <ul>
-                            @foreach(config('opencfp.speaker_packages') as $package)
+                            @foreach(config('dotcfp.speaker_packages') as $package)
                                 <li>{{ $package }}</li>
                             @endforeach
                         </ul>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="panel-body">
                         <p>
-                            {{ config('opencfp.event_name', 'OpenCFP') }} is committed to creating a conference that is
+                            {{ config('dotcfp.event_name', 'dotCFP') }} is committed to creating a conference that is
                             as inclusive as
                             possible.
                             We want to showcase talent available around the U.S. and welcome international submissions

@@ -39,7 +39,7 @@
                                     </td>
                                     <td>
                                         <a target="_blank"
-                                           href="https://www.google.com/flights/#search;f={{ config('opencfp.airport_code') }};t={{ $user->airport_code }};d={{ config('opencfp.start_date') }};r={{ config('opencfp.end_date') }}">{{ $user->airport_code }}</a>
+                                           href="https://www.google.com/flights/#search;f={{ config('dotcfp.airport_code') }};t={{ $user->airport_code }};d={{ config('dotcfp.start_date') }};r={{ config('dotcfp.end_date') }}">{{ $user->airport_code }}</a>
                                     </td>
                                     <td>{{ $user->desire_transportation ? 'yes' : 'no' }}</td>
                                     <td>{{ $user->desire_accommodation ? 'yes' : 'no' }}</td>
