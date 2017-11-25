@@ -44,8 +44,8 @@
                                     class="fa fa-ticket"></i> Event Website</a></li>
 
                     @if(auth()->check())
-                    <li class="{{ Request::is('users/' . auth()->id() . '/edit') ? 'active' : '' }}"><a
-                                href="{{ route('users.edit', auth()->id()) }}"><i
+                    <li class="{{ Request::is('users/' . auth()->user()->username . '/edit') ? 'active' : '' }}"><a
+                                href="{{ route('users.edit', auth()->user()->username) }}"><i
                                     class="fa fa-pencil"></i> Edit Profile</a></li>
                     @endif
 

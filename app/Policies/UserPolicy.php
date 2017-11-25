@@ -30,6 +30,10 @@ class UserPolicy
      */
     public function edit(User $user, User $model)
     {
+        if (!auth()->user()->inCommittee() && auth()->id() != $model->id) {
+            abort(404);
+        }
+
         return $user->id == $model->id;
     }
 
@@ -42,6 +46,10 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
+        if (!auth()->user()->inCommittee() && auth()->id() != $model->id) {
+            abort(404);
+        }
+
         return $user->id == $model->id;
     }
 }
