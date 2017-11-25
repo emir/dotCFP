@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TalkRequest;
+use App\Notifications\TalkApproved;
 use App\Talk;
 use App\Vote;
 use Illuminate\Http\JsonResponse;
@@ -151,7 +152,11 @@ class TalksController extends Controller
 
         $talk->update(['status' => $request->get('status')]);
 
-        flash()->overlay('Talk status successfully changed!', 'Yay');
+        if ($request->get('status') == 1) {
+            $talk->user->notify(new TalkApproved($talk));
+        }
+
+        flash()->success('Talk status successfully changed!');
 
         return redirect()->route('talks.show', $talk->slug);
     }

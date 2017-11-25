@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "77140e52f4484489505e63c6f99687aa",
+    "content-hash": "4654fa61d3199d99e49456f0affec163",
     "packages": [
         {
             "name": "avengers/bootforms",
