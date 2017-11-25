@@ -75,7 +75,7 @@
     <div id="talks" class="tab-pane fade">
         <div class="list-group">
             @foreach($user->talks as $talk)
-                <a href="{{ route('talks.show', $talk->id) }}" class="list-group-item">
+                <a href="{{ route('talks.show', $talk->slug) }}" class="list-group-item">
                     <h4 class="list-group-item-heading">
                         @if($talk->is_favorite)<i class="fa fa-star"></i>@endif
                         {{ $talk->title }}

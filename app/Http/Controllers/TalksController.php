@@ -101,7 +101,7 @@ class TalksController extends Controller
 
         flash()->success('You have successfully updated your talk!');
 
-        return redirect()->route('talks.edit', $talk->id);
+        return redirect()->route('talks.edit', $talk->slug);
     }
 
     /**
@@ -153,6 +153,6 @@ class TalksController extends Controller
 
         flash()->overlay('Talk status successfully changed!', 'Yay');
 
-        return redirect()->route('talks.show', $talk->id);
+        return redirect()->route('talks.show', $talk->slug);
     }
 }

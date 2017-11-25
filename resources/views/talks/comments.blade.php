@@ -39,7 +39,7 @@
 
         <div class="comment">
             <p>You're logged in as <strong>{{ auth()->user()->name }}</strong></p>
-            <form method="POST" action="{{ route('talks.comments', $talk->id) }}">
+            <form method="POST" action="{{ route('talks.comments', $talk->slug) }}">
                 {{ csrf_field() }}
                 <textarea name="comment" id="comment" style="width: 100%; height: 100px; border: 1px solid #eeeeee; padding: 10px;"></textarea>
                 <div class="pull-right">

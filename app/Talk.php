@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Watson\Validating\ValidatingTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Talk extends Model
 {
-    use SoftDeletes, ValidatingTrait;
+    use SoftDeletes, ValidatingTrait, Sluggable, SluggableScopeHelpers;
+
+    protected $slugKeyName = 'slug';
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +51,28 @@ class Talk extends Model
         'slide' => 'nullable|url',
         'is_favorite' => 'boolean'
     ];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return $this->getSlugKeyName();
+    }
 
     /**
      * @return BelongsTo

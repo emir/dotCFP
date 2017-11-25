@@ -50,9 +50,9 @@
                                     <td>@if($talk->is_favorite)<i title="Favorite" class="fa fa-star"></i>@endif
 
                                         @if(auth()->user()->inCommittee())
-                                            <a href="{{ route('talks.show', $talk->id) }}">{{ $talk->title }}</a>
+                                            <a href="{{ route('talks.show', $talk->slug) }}">{{ $talk->title }}</a>
                                         @else
-                                            <a href="{{ route('talks.edit', $talk->id) }}">{{ $talk->title }}</a>
+                                            <a href="{{ route('talks.edit', $talk->slug) }}">{{ $talk->title }}</a>
                                         @endif
                                     </td>
                                     <td>
@@ -72,13 +72,13 @@
                                         <td>
                                             <ul class="list-inline">
                                                 <li>
-                                                    <a href="{{ route('talks.edit', $talk->id) }}"
+                                                    <a href="{{ route('talks.edit', $talk->slug) }}"
                                                        class="btn btn-warning btn-xs">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ route('talks.destroy', $talk->id) }}"
+                                                    <a href="{{ route('talks.destroy', $talk->slug) }}"
                                                        class="btn btn-danger btn-xs"
                                                        onclick="return confirm('Are you sure you want to delete this talk?');">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i> Delete

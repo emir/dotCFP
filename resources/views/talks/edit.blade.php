@@ -14,7 +14,7 @@
 
                         @include('flash::message')
 
-                        {!! BootForm::openHorizontal(['sm' => [4, 8], 'lg' => [2, 10]])->action(route('talks.update', $talk->id))->put() !!}
+                        {!! BootForm::openHorizontal(['sm' => [4, 8], 'lg' => [2, 10]])->action(route('talks.update', $talk->slug))->put() !!}
 
                         {!! BootForm::bind($talk) !!}
 

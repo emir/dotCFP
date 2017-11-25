@@ -18,7 +18,7 @@
                             <div class="col-md-3">
                                 <div class="pull-right">
                                     <div id="rate" data-score="{{ $talk->average_vote }}"
-                                         data-href="{{ route('talks.vote', $talk->id) }}" style="font-size: 8pt;"></div>
+                                         data-href="{{ route('talks.vote', $talk->slug) }}" style="font-size: 8pt;"></div>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="panel-footer clearfix">
                             <div class="pull-right">
                                 @if($talk->status == 0)
-                                    <form method="POST" action="{{ route('talks.approve', $talk->id) }}">
+                                    <form method="POST" action="{{ route('talks.approve', $talk->slug) }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="status" value="1">
                                         <button type="submit" class="btn btn-success pull-left"><i
@@ -58,7 +58,7 @@
                                         </button>
                                     </form>
                                 @else
-                                    <form method="POST" action="{{ route('talks.approve', $talk->id) }}">
+                                    <form method="POST" action="{{ route('talks.approve', $talk->slug) }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="status" value="0">
                                         <button type="submit" class="btn btn-danger pull-left"><i
