@@ -23,7 +23,7 @@ class CommentsController extends Controller
 
         flash()->success('You have successfully added your comment!');
 
-        return response()->redirectToRoute('talks.show', $talk->id);
+        return response()->redirectToRoute('talks.show', $talk->slug);
     }
 
     /**
@@ -36,6 +36,6 @@ class CommentsController extends Controller
 
         flash()->success('You have successfully deleted your comment!');
 
-        return response()->redirectToRoute('talks.show', $comment->talk_id);
+        return response()->redirectToRoute('talks.show', $comment->talk->slug);
     }
 }
