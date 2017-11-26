@@ -30,6 +30,7 @@ class User extends Authenticatable
         'desire_transportation',
         'desire_accommodation',
         'role',
+        'last_login',
         'is_sponsor'
     ];
 
@@ -46,6 +47,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = [
+        'last_login',
         'deleted_at'
     ];
 

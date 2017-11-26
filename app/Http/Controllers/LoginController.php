@@ -40,6 +40,7 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
         }
 
         try {
+            /** @var User $createdUser */
             $createdUser = User::firstOrCreate([
                 'github_id' => $user->getId(),
                 'email' => $user->getEmail()
@@ -58,7 +59,9 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
             return redirect()->intended('/home');
         }
 
-        Auth::login($createdUser, true);
+        $createdUser->update(['last_login' => new \DateTime()]);
+
+        Auth::login($createdUser, false);
 
         return redirect()->intended('/home');
     }
