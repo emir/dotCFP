@@ -9,6 +9,9 @@ return [
     //Event Contact email
     'event_email' => 'mail@istanbulphp.org',
 
+    //Timezone
+    'timezone' => 'Europe/Istanbul',
+
     //Event start date (Y-m-d)
     'start_date' => '2018-05-20',
 
