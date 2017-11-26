@@ -14,7 +14,18 @@ class Talk extends Model
 {
     use SoftDeletes, ValidatingTrait, Sluggable, SluggableScopeHelpers;
 
+    /**
+     * @var string
+     */
     protected $slugKeyName = 'slug';
+
+    /**
+     * Whether the model should throw a ValidationException if it
+     * fails validation. If not set, it will default to false.
+     *
+     * @var boolean
+     */
+    protected $throwValidationExceptions = true;
 
     /**
      * The attributes that are mass assignable.
@@ -49,7 +60,8 @@ class Talk extends Model
         'additional_information' => 'nullable|string',
         'duration' => 'required|numeric',
         'slide' => 'nullable|url',
-        'is_favorite' => 'boolean'
+        'is_favorite' => 'boolean',
+        'average_vote' => 'nullable|min:1|max:5'
     ];
 
     /**

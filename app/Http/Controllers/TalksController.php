@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class TalksController extends Controller
 {
@@ -136,7 +137,15 @@ class TalksController extends Controller
             'vote' => $request->get('vote')
         ]);
 
-        return response()->json(['vote' => $request->get('vote')]);
+        $averageVote = Vote::whereTalkId($talk->id)->avg('vote');
+
+        $talk->average_vote = $averageVote;
+
+        if (!$talk->save()) {
+            Log::emergency($request->route()->getName(), ['errors' => 'An error encountered while updating vote']);
+        }
+
+        return response()->json(['vote' => $talk->average_vote]);
     }
 
     /**

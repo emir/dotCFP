@@ -39,20 +39,6 @@ class Vote extends Model
     ];
 
     /**
-     * The event map for the model.
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saved(function (Vote $vote) {
-            $vote->talk()->update([
-                'average_vote' => $vote->avg('vote')
-            ]);
-        });
-    }
-
-    /**
      * @return BelongsTo
      */
     public function user(): BelongsTo
