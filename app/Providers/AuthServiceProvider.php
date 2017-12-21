@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Conference;
 use App\Policies\CommentPolicy;
+use App\Policies\ConferencePolicy;
 use App\Policies\TalkPolicy;
 use App\Policies\UserPolicy;
 use App\Comment;
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Talk::class => TalkPolicy::class,
         Comment::class => CommentPolicy::class,
+        Conference::class => ConferencePolicy::class,
     ];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Comment;
+use App\Conference;
 use App\Talk;
 use App\User;
 use Illuminate\Routing\Router;
@@ -48,6 +49,7 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('user', User::class);
         $router->model('talk', Talk::class);
         $router->model('comment', Comment::class);
+        $router->model('conference', Conference::class);
     }
 
     /**

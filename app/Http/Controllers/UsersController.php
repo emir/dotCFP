@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Conference;
 use App\Http\Requests\UpdateUserProfile;
 use App\User;
 use Illuminate\Http\JsonResponse;
@@ -33,10 +34,13 @@ class UsersController extends Controller
     /**
      * @param User $user
      * @return Response
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
-    public function edit(User $user): Response
+    public function edit(Request $request, User $user): Response
     {
-        return response()->view('users.edit', compact('user'));
+        $conference = Conference::findBySlugOrFail($request->route('subdomain'));
+
+        return response()->view('users.edit', compact('user', 'conference'));
     }
 
     /**

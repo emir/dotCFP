@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\RedirectIfUncompletedProfile;
-use App\Http\Middleware\Role;
 use App\Http\Middleware\CheckDates;
 use App\Http\Middleware\VerifyTalkOwnership;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -61,6 +60,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'role' => Role::class,
+        'role' => \App\Http\Middleware\Role::class,
     ];
 }

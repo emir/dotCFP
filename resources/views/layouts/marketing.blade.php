@@ -8,16 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $conference->name }}: Call for Papers</title>
+    <title>dotCFP: A Call for Papers Application</title>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <style>
-    #map {
-        height: 300px;
-        width: 100%;
-    }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 <div id="app">
@@ -36,23 +31,20 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fa fa-bullhorn"></i> {{ $conference->name }}
+                    <i class="fa fa-bullhorn"></i> {{ config('app.name') }}
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home', ['subdomain' => request()->route('subdomain')]) }}"><i
+                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}"><i
                                     class="fa fa-home"></i> Home</a></li>
 
-                    <li><a target="_blank" href="{{ $conference->website }}"><i
-                                    class="fa fa-ticket"></i> Event Website</a></li>
-
                     @if(auth()->check())
-                    <li class="{{ Request::is('users/' . auth()->user()->username . '/edit') ? 'active' : '' }}"><a
-                                href="{{ route('users.edit', auth()->user()->username) }}"><i
-                                    class="fa fa-pencil"></i> Edit Profile</a></li>
+                        <li class="{{ Request::is('users/' . auth()->user()->username . '/edit') ? 'active' : '' }}"><a
+                                    href="{{ route('users.edit', auth()->user()->username) }}"><i
+                                        class="fa fa-pencil"></i> Edit Profile</a></li>
                     @endif
 
                     @if(auth()->check() && auth()->user()->inCommittee())
@@ -78,33 +70,13 @@
                         <li class="{{ Request::is('talks') ? 'active' : '' }}"><a href="{{ route('talks.index') }}"><i
                                         class="fa fa-list"></i> My Talks</a></li>
                     @endif
-
-                    @if($conference->open_date > date('Y-m-d'))
-                    <li style="margin-left: 10px;">
-                        <p class="navbar-btn">
-                            <a target="_blank" href="{{ $conference->website }}" class="btn btn-info">Opened from {{ $conference->open_date->format('M d, Y') }} to {{ $conference->close_date->format('M d, Y') }}</a>
-                        </p>
-                    </li>
-                    @elseif($conference->close_date < date('Y-m-d'))
-                        <li style="margin-left: 10px;">
-                            <p class="navbar-btn">
-                                <a target="_blank" href="{{ $conference->website }}" class="btn btn-danger">CFP is closed—now what?</a>
-                            </p>
-                        </li>
-                    @else
-                    <li style="margin-left: 10px;">
-                        <p class="navbar-btn">
-                            <a href="{{ route('talks.create') }}" class="btn btn-success">Submit your Talk!</a>
-                        </p>
-                    </li>
-                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a href="{{ url('/login') }}"><i class="fa fa-github"></i> Login with GitHub</a></li>
+                        <li><a href="{{ route('login') }}"><i class="fa fa-github"></i> Login with GitHub</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -140,7 +112,7 @@
 <footer class="footer">
     <div class="container">
         <p class="text-muted">Made with <i class="fa fa-heart" aria-hidden="true"></i> in Istanbul, Fork me on <a target="_blank"
-                                                                                 href="https://github.com/emir/dotCFP"><i class="fa fa-github" aria-hidden="true"></i></a>.️
+                                                                                                                  href="https://github.com/emir/dotCFP"><i class="fa fa-github" aria-hidden="true"></i></a>.️
         </p>
     </div>
 </footer>
@@ -148,6 +120,8 @@
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ mix('js/bootbox.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 @stack('scripts')
 
 </body>

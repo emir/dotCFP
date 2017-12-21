@@ -11,15 +11,11 @@
 |
 */
 
-Route::redirect('/home', '/');
+Route::domain('{subdomain}.dotcfp.dev')->group(function () {
+    Route::get('/', 'HomeController@index')->name('subdomain.home');
 
-Route::view('/', 'home')->name('home');
-
-Route::get('/login/github', 'LoginController@redirectToProvider')->name('login');
-
-Route::get('/login/github/callback', 'LoginController@handleProviderCallback');
-
-Route::get('/committee', 'CommitteeController@index')->name('committee.index');
+    Route::get('/committee', 'CommitteeController@index')->name('committee.index');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
@@ -35,6 +31,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/users/{user}/roles', 'UsersController@roleAction')->name('users.roles')->middleware(['role:admin']);
 
     Route::put('/users/{user}/update', 'UsersController@update')->name('users.update')->middleware(['can:update,user']);
+
+    /**
+     * Conference
+     */
+    Route::get('/conferences/create', 'ConferencesController@create')->name('conferences.create');
+    Route::post('/conferences', 'ConferencesController@store')->name('conferences.store');
+
+    Route::get('/conferences/{conference}/edit', 'ConferencesController@edit')->name('conferences.edit')->middleware(['can:update,conference']);
+    Route::put('/conferences/{conference}/update', 'ConferencesController@update')->name('conferences.update')->middleware(['can:update,conference']);
 
     /**
      * Talks
@@ -58,3 +63,11 @@ Route::group(['middleware' => 'auth'], function () {
      */
     Route::get('/comments/{comment}/delete', 'CommentsController@destroy')->name('comments.destroy')->middleware(['role:admin|reviewer', 'can:delete,comment']);
 });
+
+Route::redirect('/home', '/');
+
+Route::get('/', 'MarketingController@index')->name('home');
+
+Route::get('/login/github', 'LoginController@redirectToProvider')->name('login');
+
+Route::get('/login/github/callback', 'LoginController@handleProviderCallback');
