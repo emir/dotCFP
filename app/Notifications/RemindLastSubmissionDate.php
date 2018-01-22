@@ -63,7 +63,7 @@ class RemindLastSubmissionDate extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject($subject)
             ->greeting(sprintf('Hello, %s', $this->userName))
-            ->line(sprintf('You are registered but haven\'t send your proposal(s) yet. %s submissions were accepted until %s. Please get involved!', config('dotcfp.event_name'), (new \DateTime(config('dotcfp . cfp_end_date')))->format('M d, Y')))
+            ->line(sprintf('You are registered but haven\'t send your proposal(s) yet. %s submissions were accepted until %s. Please get involved!', config('dotcfp.event_name'), (new \DateTime(config('dotcfp.cfp_end_date')))->format('M d, Y')))
             ->action('Submit your talk(s)!', route('talks.create'));
     }
 
