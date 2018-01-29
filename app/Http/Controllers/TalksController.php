@@ -37,7 +37,7 @@ class TalksController extends Controller
         }
 
         return response()->view('talks.index', [
-            'talks' => $talks->paginate(1),
+            'talks' => $talks->paginate(10),
             'status' => $request->get('status') ?? null,
             'order' => $request->get('order') ?? null,
         ]);
