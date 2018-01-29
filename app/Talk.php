@@ -134,7 +134,7 @@ class Talk extends Model
      */
     public function scopeMostVoted($query)
     {
-        return $query->orderBy('average_vote', 'DESC');
+        return $query->where('average_vote', '>', 0)->orderBy('average_vote', 'DESC');
     }
 
     /**
