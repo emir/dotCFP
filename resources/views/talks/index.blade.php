@@ -11,11 +11,11 @@
                             My
                         @endif
 
-                        @if (auth()->user()->inCommittee() && app('request')->has('status'))
+                        @if (auth()->user()->inCommittee() && null !== $status)
                             Approved
                         @endif
 
-                        @if (auth()->user()->inCommittee() && app('request')->has('order'))
+                        @if (auth()->user()->inCommittee() && null !== $order)
                             Most Voted
                         @endif
 
@@ -92,7 +92,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $talks->links() }}
+                    {{ $talks->appends(['status' => $status, 'order' => $order])->links() }}
                 </div>
             </div>
         </div>

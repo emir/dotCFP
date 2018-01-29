@@ -17,7 +17,6 @@ class TalksController extends Controller
     /**
      * @param Request $request
      * @return Response
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(Request $request): Response
     {
@@ -38,7 +37,9 @@ class TalksController extends Controller
         }
 
         return response()->view('talks.index', [
-            'talks' => $talks->paginate()
+            'talks' => $talks->paginate(1),
+            'status' => $request->get('status') ?? null,
+            'order' => $request->get('order') ?? null,
         ]);
     }
 
