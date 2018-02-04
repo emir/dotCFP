@@ -43,7 +43,7 @@ class RemindSubmissionsEndedCommand extends Command
 
         $bar = $this->output->createProgressBar(count($committee));
 
-        $this->info(sprintf('Reminder(s) passing to queue for %d users.', count($committee->count())));
+        $this->info(sprintf('Reminder(s) passing to queue for %d users.', count($committee)));
 
         foreach ($committee as $user) {
             $user->notify(new RemindSubmissionsEnded($user->name));
