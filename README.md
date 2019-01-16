@@ -12,6 +12,7 @@
     * [Migration](https://github.com/bdemirpolat/test#Migration)
     * [Preparing the First Presentation](https://github.com/bdemirpolat/test#Preparing-the-First-Presentation)
   * [Roles](https://github.com/bdemirpolat/test#Roles)
+  * [Troubleshooting](#Troubleshooting)
 # What is dotCFP
 dotCFP is a PHP/Laravel based conference talk submission system. This project is greatly inspired by the @OpenCFP.
 # Features
@@ -104,6 +105,7 @@ dotCFP is a PHP/Laravel based conference talk submission system. This project is
      * Can send new talks.
      * Can authorize all users Admin or Reviewer roles.
      * Can edit or delete all conversations.
+ # Troubleshooting
       
 
 
