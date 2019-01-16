@@ -15,7 +15,7 @@
 # What is dotCFP
 dotCFP is a PHP/Laravel based conference talk submission system. This project is greatly inspired by the @OpenCFP.
 # Features
-  - Propose, vote, comment and confirmation system from all user roles for talks.<br />
+  - Propose, vote, comment and confirmation system from all authorized user roles for talks.<br />
   - Registration, transportation and accommodation information entry for speakers.<br />
   - Profile management for speakers, reviewers and admins.<br />
   - User roles management for admins. <br />
