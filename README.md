@@ -1,17 +1,17 @@
 # Readme Content
-  * [What is dotCFP](https://github.com/bdemirpolat/test#What-is-dotCFP)
-  * [Features](https://gitub.com/bdemirpolat/test#Features)
-  * [Install](https://github.com/bdemirpolat/test#Install)
-    * [Cloning The Repository](https://github.com/bdemirpolat/test#Cloning-The-Repository)
-    * [Dependencies](https://github.com/bdemirpolat/test#Dependencies)
-    * [Application Type](https://github.com/bdemirpolat/test#Application-Type)
-    * [Check URL](https://github.com/bdemirpolat/test#Check-URL)
-    * [Mail Configuration](https://github.com/bdemirpolat/test#Mail-Configuration)
-    * [GitHub Integration](https://github.com/bdemirpolat/test#GitHub-Integration)
-    * [Creating a Database](https://github.com/bdemirpolat/test#Creating-a-Database)
-    * [Migration](https://github.com/bdemirpolat/test#Migration)
-    * [Preparing the First Presentation](https://github.com/bdemirpolat/test#Preparing-the-First-Presentation)
-  * [Roles](https://github.com/bdemirpolat/test#Roles)
+  * [What is dotCFP](#What-is-dotCFP)
+  * [Features](#Features)
+  * [Install](#Install)
+    * [Cloning The Repository](#Cloning-The-Repository)
+    * [Dependencies](#Dependencies)
+    * [Application Type](#Application-Type)
+    * [Check URL](#Check-URL)
+    * [Mail Configuration](#Mail-Configuration)
+    * [GitHub Integration](#GitHub-Integration)
+    * [Creating a Database](#Creating-a-Database)
+    * [Migration](#Migration)
+    * [Preparing the First Presentation](#Preparing-the-First-Presentation)
+  * [Roles](#Roles)
   * [Troubleshooting](#Troubleshooting)
 # What is dotCFP
 dotCFP is a PHP/Laravel based conference talk submission system. This project is greatly inspired by the @OpenCFP.
@@ -106,7 +106,16 @@ dotCFP is a PHP/Laravel based conference talk submission system. This project is
      * Can authorize all users Admin or Reviewer roles.
      * Can edit or delete all conversations.
  # Troubleshooting
-      
+  ### Specified key was too long.
+  Go to `app/providers/AppServiceProvider.php` and in set a default string length.
+  ```
+  use Illuminate\Support\Facades\Schema;
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+  ```
 
 
   
