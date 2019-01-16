@@ -109,7 +109,7 @@ dotCFP is a PHP/Laravel based conference talk submission system. This project is
  # Troubleshooting
   ### Specified key was too long.
   This error only occurs under v5.7.7 versions of MySQL. <br />
-  Go to `app/providers/AppServiceProvider.php` and in set a default string length.
+  Go to `app/providers/AppServiceProvider.php` and set a default string length.
   ```
   use Illuminate\Support\Facades\Schema;
 
