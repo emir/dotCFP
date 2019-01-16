@@ -23,8 +23,7 @@ dotCFP is a PHP/Laravel based conference talk submission system. This project is
 
 # Install
   ### Requirements
-  dotCFP needs to  Laravel 5.7 requirements. 
-  [Laravel 5.7 Requirements](https://laravel.com/docs/5.7#server-requirements)
+  dotCFP needs to [Laravel 5.7 Requirements](https://laravel.com/docs/5.7#server-requirements)
   ### Cloning The Repository
   Run the following code for cloning dotCFP repository into your working directory.
    ```
